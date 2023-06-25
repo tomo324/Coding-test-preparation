@@ -10,3 +10,6 @@ class Solution:
             return base
         else:
             return ""
+        
+# スライスの使い方をマスターする
+# startswithなどの便利なメソッドを知っておく。知らなければ検索してみる
