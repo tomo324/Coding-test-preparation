@@ -12,9 +12,9 @@ can = True
 for i in range(N):
     dt = t[i+1] - t[i]
     dist = abs(x[i+1] - x[i]) + abs(y[i+1] - y[i])
-    if dist > dt:
+    if dt < dist:
         can = False
-    if dist % 2 != dt % 2:
+    if dt % 2 != dist % 2:
         can = False
 
 if can:
