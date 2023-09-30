@@ -1,14 +1,13 @@
 K = int(input())
 
-nums = []
-
-for i in range(2, 1 << 10):
+ans = []
+for bit in range(2, 1 << 10):
     x = 0
-    for j in range(9, -1, -1):
-        if (i & (1 << j)):
+    for i in range(9, -1, -1):
+        if bit & (1 << i):
             x *= 10
-            x += j
-    nums.append(x)
+            x += i
+    ans.append(x)
 
-nums.sort()
-print(nums[K-1])
+ans.sort()
+print(ans[K - 1])

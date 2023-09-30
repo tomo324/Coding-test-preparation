@@ -1,13 +1,14 @@
 import sys
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10 ** 6)
+
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
 
 def dfs(h, w):
     seen[h][w] = True
-
     for i in range(4):
         nh = h + dy[i]
         nw = w + dx[i]
-
         if nh < 0 or nh >= H or nw < 0 or nw >= W:
             continue
         if field[nh][nw] == "#":
@@ -17,23 +18,21 @@ def dfs(h, w):
         dfs(nh, nw)
 
 H, W = map(int, input().split())
-field = [[] for _ in range(H) ]
 
-for i in range(H):
-    field[i] = input()
+field = [input() for _ in range(H)]
+
+seen = [[False for _ in range(W)] for _ in range(H)]
 
 sh, sw, gh, gw = 0, 0, 0, 0
 for h in range(H):
     for w in range(W):
         if field[h][w] == "s":
-            sh, sw = h, w
+            sh = h
+            sw = w
         if field[h][w] == "g":
-            gh, gw = h, w
+            gh = h
+            gw = w
 
-dy = [1, 0, -1, 0]
-dx = [0, 1, 0, -1]
-
-seen = [[False for _ in range(510)] for _ in range(510)]
 dfs(sh, sw)
 
 if seen[gh][gw]:
