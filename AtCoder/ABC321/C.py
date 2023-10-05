@@ -1,12 +1,13 @@
 K = int(input())
 
 ans = []
-for bit in range(2, 1 << 10):
+
+for i in range(2, 1 << 10):
     x = 0
-    for i in range(9, -1, -1):
-        if bit & (1 << i):
+    for j in range(9, -1, -1):
+        if i & (1 << j):
             x *= 10
-            x += i
+            x += j
     ans.append(x)
 
 ans.sort()

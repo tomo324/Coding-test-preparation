@@ -2,35 +2,28 @@ import sys
 sys.setrecursionlimit(10 ** 6)
 
 
-def dfs(city, current_len):
-    global max_len
-    max_len = max(max_len, current_len)
-    seen[city] = True
-    # 今の街から伸びる道路をたどって次の街を探す
-    for obj in G[city]:
-        if seen[obj[0]]:
+def dfs(current_length, visited, city):
+    global max_length
+    max_length = max(max_length, current_length)
+    visited[city] = True
+    for n_city in city_list[city]:
+        if visited[n_city[0]]:
             continue
-        dfs(obj[0], current_len + obj[1])
-    seen[city] = False
+        dfs(current_length + n_city[1], visited, n_city[0])
+    visited[city] = False
 
 N, M = map(int, input().split())
+city_list = [[] for _ in range(N + 1)]
 
-G = [[] for _ in range(15)]
-
-for i in range(M):
+for _ in range(M):
     A, B, C = map(int, input().split())
-    # 繋がっている街、道の長さの順番で追加
-    G[A].append([B, C])
-    G[B].append([A, C])
+    city_list[A].append([B, C])
+    city_list[B].append([A, C])
 
-max_len = 0
+max_length = 0
+for city_num in range(1, N + 1):
+    visited = [False] * (N + 1)
+    if city_list[city_num]:
+        dfs(0, visited, city_num)
 
-# すべての辺からスタートして試す
-for start in range(1, N+1):
-    # seenを初期化
-    seen = [False for _ in range(15)]
-    if G[start]:
-        # 各スタート地点ごとに行ける最長の道を記録
-        dfs(start, 0)
-
-print(max_len)
+print(max_length)
