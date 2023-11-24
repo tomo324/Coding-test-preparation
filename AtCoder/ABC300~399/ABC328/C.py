@@ -1,3 +1,28 @@
+N, Q = map(int, input().split())
+S = input()
+
+a = [0] * (N+1)
+b = [0] * (N+1)
+
+# 文字が連続しているかどうかを判定する
+for i in range(N-1):   # N-1まででないと、S[i+1]が存在しない
+    if S[i] == S[i+1]:
+        a[i] = 1
+
+# 累積和を求め、配列に格納
+for i in range(N):
+    b[i+1] = b[i] + a[i]
+
+# クエリを処理する
+for i in range(Q):
+    l, r = map(int, input().split())
+    # l, rは1-indexedなので、0-indexedに変換する
+    l -= 1
+    r -= 1
+    # a[ss]saaのように、文字が連続している場合を考慮するため、b[r+1] - b[l]ではなく、b[r] - b[l]を出力する
+    print(b[r] - b[l])
+
+
 """
 TLEする
 
