@@ -11,4 +11,3 @@ T = [Node() for _ in range(MAX)]
 
 def print_result(u):
     print(f'node {u}: parent {T[u].p} : depth {D[u]} : ')
-    
