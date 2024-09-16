@@ -11,7 +11,7 @@ T = [Node() for _ in range(MAX)]
 D = [0] * MAX
 
 def print_result(u):
-    print(f'node {u}: parent {T[u].p} : depth {D[u]} : ', end='')
+    print(f'node {u}: parent = {T[u].p}, depth = {D[u]}, ', end='')
 
     if (T[u].p == NIL):
         print('root, ', end='')
@@ -46,16 +46,16 @@ for i in range(n):
 
 for i in range(n):
     inputs = list(map(int, input().split()))
-    v = inputs[0]
-    d = inputs[1]
+    id = inputs[0]
+    k = inputs[1]
     children = inputs[2:]
     for j, c in enumerate(children):
         if j == 0:
-            T[v].l = c
+            T[id].l = c
         else:
             T[l].r = c
         l = c
-        T[c].p = v
+        T[c].p = id
 
 for i in range(n):
     if T[i].p == NIL:
