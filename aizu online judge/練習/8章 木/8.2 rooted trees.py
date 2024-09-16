@@ -1,14 +1,8 @@
-MAX = 100005
-NIL = -1
-
 class Node:
     def __init__(self):
         self.p = NIL
         self.l = NIL
         self.r = NIL
-
-T = [Node() for _ in range(MAX)]
-D = [0] * MAX
 
 def print_result(u):
     print(f'node {u}: parent = {T[u].p}, depth = {D[u]}, ', end='')
@@ -38,11 +32,13 @@ def rec(u, p):
     if (T[u].l != NIL):
         rec(T[u].l, p + 1)
 
+MAX = 100005
+NIL = -1
+
+T = [Node() for _ in range(MAX)]
+D = [0] * MAX
+
 n = int(input())
-for i in range(n):
-    T[i].p = NIL
-    T[i].l = NIL
-    T[i].r = NIL
 
 for i in range(n):
     inputs = list(map(int, input().split()))
@@ -61,6 +57,8 @@ for i in range(n):
     if T[i].p == NIL:
         r = i
         break
+
 rec(r, 0)
+
 for i in range(n):
     print_result(i)
