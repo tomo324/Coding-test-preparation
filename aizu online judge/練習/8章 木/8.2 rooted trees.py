@@ -26,10 +26,10 @@ def print_result(u):
     while c != NIL:
         if i:
             print(', ', end='')
-            print(c, end='')
-        print("]")
+        print(c, end='')
         c = T[c].r
         i += 1
+    print(']')
 
 def rec(u, p):
     D[u] = p
@@ -45,19 +45,22 @@ for i in range(n):
     T[i].r = NIL
 
 for i in range(n):
-    v, d = map(int, input().split())
-    for j in range(d):
-        c = int(input())
+    inputs = list(map(int, input().split()))
+    v = inputs[0]
+    d = inputs[1]
+    children = inputs[2:]
+    for j, c in enumerate(children):
         if j == 0:
             T[v].l = c
         else:
             T[l].r = c
-            l = c
-            T[c].p = v
-    for i in range(n):
-        if T[i].p == NIL:
-            r = i
-            break
-    rec(r, 0)
-    for i in range(n):
-        print_result(i)
+        l = c
+        T[c].p = v
+
+for i in range(n):
+    if T[i].p == NIL:
+        r = i
+        break
+rec(r, 0)
+for i in range(n):
+    print_result(i)
