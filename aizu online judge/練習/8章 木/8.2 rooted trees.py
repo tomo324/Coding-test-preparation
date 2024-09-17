@@ -49,8 +49,8 @@ for i in range(n):
         if j == 0:
             T[id].l = c
         else:
-            T[l].r = c
-        l = c
+            T[prev].r = c
+        prev = c
         T[c].p = id
 
 for i in range(n):
