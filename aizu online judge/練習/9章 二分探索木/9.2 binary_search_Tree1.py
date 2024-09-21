@@ -16,11 +16,11 @@ def insert(k):
 
     while x != NIL:
         y = x
-        if (z.key < x.key):
+        if z.key < x.key:
             x = x.left
         else:
             x = x.right
-    
+
     z.parent = y
     if y == NIL:
         root = z
