@@ -20,7 +20,7 @@ def insert(k):
             x = x.left
         else:
             x = x.right
-
+    
     z.parent = y
     if y == NIL:
         root = z
@@ -29,6 +29,19 @@ def insert(k):
             y.left = z
         else:
             y.right = z
+
+def find(k):
+    global root, NIL
+    x = root if root is not None else NIL
+    while x != NIL and x.key != k:
+        if k < x.key:
+            x = x.left
+        else:
+            x = x.right
+    if x != NIL:
+        print("yes")
+    else:
+        print("no")
 
 def inorder(u):
     if u == NIL:
@@ -49,6 +62,8 @@ for i in range(n):
     com = input().split()
     if com[0] == "insert":
         insert(int(com[1]))
+    elif com[0] == "find":
+        find(int(com[1]))
     elif com[0] == "print":
         inorder(root)
         print()
