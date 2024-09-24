@@ -29,6 +29,7 @@ def dfs_visit(u):
 def dfs():
     for u in range(n):
         color[u] = WHITE
+    global tt
     tt = 0
     for u in range(n):
         if color[u] == WHITE:
