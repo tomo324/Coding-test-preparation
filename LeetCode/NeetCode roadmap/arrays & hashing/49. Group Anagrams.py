@@ -1,18 +1,13 @@
+from collections import defaultdict
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        result = []
-        hashset = set()
+        ans = defaultdict(list)
+
         for s in strs:
-            s_sorted = sorted(s)
-        for a in s_sorted:
-            hashset.add(a)
-        for i in range(len(hashset)):
-            group = []
-            for s in strs:
-                s_s = sorted(s)
-                if s_s in hashset:
-                    group.append(s)
-        print(group)
+            count = [0] * 26 # a ... z
+            for c in s:
+                count[ord(c) - ord("a")] += 1
+            ans[tuple(count)].append(s)
 
-
-                
+        return ans.values()
