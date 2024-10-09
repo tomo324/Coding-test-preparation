@@ -5,5 +5,4 @@ class Solution:
             if count.get(n, 0) > 0:
                 return True
             else:
-                count[n] = count.get(n, 0) + 1
-        return False
+                return False
