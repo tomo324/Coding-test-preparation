@@ -2,6 +2,7 @@
 https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_4_A&lang=ja
 """
 
+# keyがリストaに存在するかどうかを判定する（番兵法による線形探索）
 def search(a, n, key):
     a[n] = key
     i = 0
