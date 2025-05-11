@@ -1,5 +1,8 @@
 """
 https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_4_A&lang=ja
+
+AtCoderの問題
+
 """
 
 # keyがリストaに存在するかどうかを判定する（番兵法による線形探索）
