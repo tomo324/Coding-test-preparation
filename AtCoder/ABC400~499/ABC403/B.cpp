@@ -5,18 +5,20 @@ using namespace std;
 
 int main() {
   string t, u;
-  cin >> t;
-  cin >> u;
+  cin >> t >> u;
 
-  for (int i = 0; i < t.size() - u.size(); i++) {
+  for (int i = 0; i <= t.size() - u.size(); i++) {
+    bool match = true;
     for (int j = 0; j < u.size(); j++) {
-      if (t[i] != u[j] || t[i] != '?') {
+      // t[i + j] が '?'でない場合で、u[j]と一致しない場合
+      if (t[i + j] != '?' && t[i + j] != u[j]) {
+        match = false;
         break;
       }
-      if (j == u.size() -1) {
-        cout << "Yes" << endl;
-        return 0;
-      }
+    }
+    if (match) {
+      cout << "Yes" << endl;
+      return 0;
     }
   }
   cout << "No" << endl;
