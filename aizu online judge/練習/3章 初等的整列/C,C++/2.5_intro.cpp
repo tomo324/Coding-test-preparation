@@ -7,17 +7,18 @@ using namespace std;
 static const int MAX = 200000;
 
 int main() {
-  int R[MAX], n;
+  int n, r;
 
   cin >> n;
-  for (int i = 0; i < n; i++) cin >> R[i];
+  cin >> r;
 
   int maxv = -2e9;
-  int minv = R[0];
+  int minv = r;
 
   for (int i = 1; i < n; i++) {
-    maxv = max(maxv, R[i] - minv);
-    minv = min(minv, R[i]);
+    cin >> r;
+    maxv = max(maxv, r - minv);
+    minv = min(minv, r);
   };
 
   cout << maxv << endl;
