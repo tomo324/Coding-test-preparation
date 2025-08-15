@@ -36,6 +36,7 @@ int main() {
   head = 1;
   tail = n + 1;
 
+  // 配列サイズが制約よりも十分大きく確保されているのでキューが満杯になることはない
   while (head != tail) {
     u = dequeue();
     c = min(q, u.t);
