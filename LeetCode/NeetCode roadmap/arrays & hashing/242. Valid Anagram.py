@@ -32,3 +32,20 @@ class Solution:
 #             if countS.get(s, 0) != countT.get(s, 0):
 #                 return False
 #         return True
+
+# class Solution:
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#             return False
+            
+#         countS = {} # alphabet : count
+#         countT = {}
+#         for c in s:
+#             countS[c] = countS.get(c, 0) + 1
+#         for c in t:
+#             countT[c] = countT.get(c, 0) + 1
+        
+#         for c in countS:
+#             if countS.get(c, 0) != countT.get(c, 0):
+#                 return False
+#         return True
